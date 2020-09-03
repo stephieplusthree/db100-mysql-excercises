@@ -54,28 +54,71 @@ select distinct rating from film;
 ## 3. WHERE clause
 
 # 3a. Select the title, description, rating, movie length columns from the films table that last 3 hours or longer.
-
+select
+    title,
+    description,
+    rating,
+    length,
+from film
+where length >= 180;
 
 # 3b. Select the payment id, amount, and payment date columns from the payments table for payments made on or after 05/27/2005.
-
+select
+    payment_id,
+    amount,
+    payment_date
+from payment
+where payment_date > '2005-05-27';
 
 # 3c. Select the primary key, amount, and payment date columns from the payment table for payments made on 05/27/2005.
-
+select 
+    payment_id,
+    amount,
+    payment_date
+from payment
+where payment_date between '2005-05-27' and '2005-05-28';
 
 # 3d. Select all columns from the customer table for rows that have a last name beginning with "S" and a first name ending with "N".
-
+select * from customer
+where last_name like 'S%' and first_name like '%N';
 
 # 3e. Select all columns from the customer table for rows where the customer is inactive or has a last name ending with "M".
-
+select * from customer
+where active = 0 or last_name like '%M';
 
 # 3f. Select all columns from the category table for rows where the primary key is greater than 4 and the name field begins with either "C", "S" or "T".
-
+select * from category
+where category_id > 4 and name like '1%';
 
 # 3g. Select all columns minus the password column from the staff table for rows that contain a password.
-
+select 
+    staff_id,
+    first_name,
+    last_name,
+    address_id,
+    picture,
+    email,
+    store_id,
+    active,
+    username,
+    last_update
+from staff
+where password is not null;
 
 # 3h. Select all columns minus the password column from the staff table for rows that do not contain a password.
-
+select 
+    staff_id,
+    first_name,
+    last_name,
+    address_id,
+    picture,
+    email,
+    store_id,
+    active, 
+    username,
+    last_update
+from staff
+where password is null;
 
 # ---------------------------------------------------------#
 
